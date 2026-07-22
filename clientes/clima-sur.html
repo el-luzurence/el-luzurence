@@ -1,0 +1,826 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clima Sur | Suministros Profesionales de Refrigeración y Ferretería</title>
+    <meta name="description" content="Distribuidor líder de insumos de refrigeración y ferretería profesional en Villa Luzuriaga, Buenos Aires. Más de 500 productos para técnicos e industrias.">
+    
+    <!-- Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary: #0D3B66;
+            --secondary: #222222;
+            --accent: #F57C00;
+            --white: #FFFFFF;
+            --light-gray: #F5F5F5;
+            --medium-gray: #E0E0E0;
+            --text-dark: #1A1A1A;
+            --text-muted: #666666;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --container-width: 1200px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text-dark);
+            line-height: 1.6;
+            background-color: var(--white);
+            overflow-x: hidden;
+        }
+
+        /* Utility Classes */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section-padding {
+            padding: 100px 0;
+        }
+
+        .text-center { text-align: center; }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem 2rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: var(--transition);
+            cursor: pointer;
+            border: none;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .btn-primary {
+            background-color: var(--accent);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            background-color: #e67200;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(245, 124, 0, 0.2);
+        }
+
+        .btn-outline {
+            border: 2px solid var(--white);
+            color: var(--white);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--white);
+            color: var(--primary);
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 1.5rem 0;
+            transition: var(--transition);
+        }
+
+        nav.scrolled {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 1rem 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            backdrop-filter: blur(10px);
+        }
+
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-weight: 800;
+            font-size: 1.5rem;
+            color: var(--primary);
+            text-decoration: none;
+            letter-spacing: -1px;
+        }
+
+        .logo span {
+            color: var(--accent);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--secondary);
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            position: relative;
+            display: flex;
+            align-items: center;
+            color: var(--white);
+            background: linear-gradient(rgba(13, 59, 102, 0.7), rgba(13, 59, 102, 0.7)), 
+                        url('https://images.unsplash.com/photo-1581092160562-40aa0834bd83?auto=format&fit=crop&q=80&w=2070') center/cover no-repeat;
+            margin-top: 0;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            line-height: 1.1;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero p {
+            font-size: clamp(1.1rem, 2vw, 1.5rem);
+            margin-bottom: 2.5rem;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+
+        .hero-btns {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        /* Trust Bar */
+        .trust-bar {
+            background: var(--light-gray);
+            padding: 3rem 0;
+            border-bottom: 1px solid var(--medium-gray);
+        }
+
+        .trust-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            text-align: center;
+        }
+
+        .trust-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .trust-item svg {
+            width: 40px;
+            height: 40px;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .trust-item h3 {
+            font-size: 1.2rem;
+            color: var(--secondary);
+        }
+
+        .trust-item p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        /* About Section */
+        .about {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-img {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            box-shadow: 20px 20px 0px var(--primary);
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            font-weight: 800;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background: var(--accent);
+            margin-top: 1rem;
+        }
+
+        .about-text p {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+            color: var(--text-muted);
+        }
+
+        /* Categories */
+        .categories {
+            background: var(--light-gray);
+        }
+
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .category-card {
+            background: var(--white);
+            padding: 2.5rem;
+            border-left: 4px solid var(--primary);
+            transition: var(--transition);
+            cursor: default;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .category-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.05);
+            border-left-color: var(--accent);
+        }
+
+        .category-card svg {
+            width: 32px;
+            height: 32px;
+            color: var(--primary);
+        }
+
+        .category-card h4 {
+            font-size: 1.2rem;
+            font-weight: 700;
+        }
+
+        /* Why Choose Us */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-top: 4rem;
+        }
+
+        .feature-box {
+            padding: 2rem;
+            border: 1px solid var(--medium-gray);
+            transition: var(--transition);
+        }
+
+        .feature-box:hover {
+            border-color: var(--primary);
+            background: #fcfcfc;
+        }
+
+        .feature-box h3 {
+            margin-bottom: 1rem;
+            color: var(--primary);
+            font-size: 1.4rem;
+        }
+
+        /* Brands */
+        .brands {
+            padding: 60px 0;
+            border-top: 1px solid var(--medium-gray);
+            border-bottom: 1px solid var(--medium-gray);
+        }
+
+        .brand-slider {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 3rem;
+            opacity: 0.6;
+            filter: grayscale(1);
+        }
+
+        .brand-logo {
+            font-weight: 800;
+            font-size: 1.5rem;
+            color: #999;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        /* WhatsApp Section */
+        .whatsapp-cta {
+            background: var(--primary);
+            color: var(--white);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .whatsapp-cta h2 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .whatsapp-cta p {
+            font-size: 1.2rem;
+            margin-bottom: 2.5rem;
+            opacity: 0.8;
+        }
+
+        .whatsapp-list {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+            list-style: none;
+        }
+
+        .whatsapp-list li {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: 500;
+        }
+
+        .whatsapp-list li::before {
+            content: '✓';
+            color: var(--accent);
+            font-weight: bold;
+        }
+
+        /* Store Info */
+        .store-info {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .info-details {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .info-item {
+            display: flex;
+            gap: 1.5rem;
+            align-items: flex-start;
+        }
+
+        .info-item svg {
+            width: 30px;
+            height: 30px;
+            color: var(--accent);
+            flex-shrink: 0;
+        }
+
+        .info-item h4 {
+            font-size: 1.2rem;
+            margin-bottom: 0.2rem;
+        }
+
+        .map-placeholder {
+            width: 100%;
+            height: 400px;
+            background: var(--light-gray);
+            border: 1px solid var(--medium-gray);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-muted);
+        }
+
+        /* Final CTA */
+        .final-cta {
+            background: var(--light-gray);
+            text-align: center;
+            padding: 80px 0;
+        }
+
+        .final-cta h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            color: var(--primary);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--secondary);
+            color: var(--white);
+            padding: 4rem 0 2rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-col h4 {
+            margin-bottom: 1.5rem;
+            font-size: 1.2rem;
+            color: var(--white);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-links a {
+            color: #aaa;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--white);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid #333;
+            font-size: 0.9rem;
+            color: #777;
+        }
+
+        /* Animations */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .about, .store-info {
+                grid-template-columns: 1fr;
+            }
+            .about-img {
+                order: 2;
+                height: 300px;
+            }
+            .nav-links {
+                display: none;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .section-padding { padding: 60px 0; }
+            .whatsapp-cta h2 { font-size: 2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav id="main-nav">
+        <div class="container nav-content">
+            <a href="#" class="logo">CLIMA<span>SUR</span></a>
+            <ul class="nav-links">
+                <li><a href="#about">Nosotros</a></li>
+                <li><a href="#categories">Productos</a></li>
+                <li><a href="#why-us">Beneficios</a></li>
+                <li><a href="#contact">Contacto</a></li>
+            </ul>
+            <a href="https://wa.me/yournumber" class="btn btn-primary" style="padding: 0.6rem 1.2rem; font-size: 0.8rem;">WhatsApp</a>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Suministros Profesionales de Refrigeración y Ferretería</h1>
+                <p>Más de 500 productos especializados para técnicos, talleres y empresas profesionales del sector.</p>
+                <div class="hero-btns">
+                    <a href="https://wa.me/yournumber" class="btn btn-primary">Contactar por WhatsApp</a>
+                    <a href="#contact" class="btn btn-outline">Visitar nuestra Tienda</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="trust-bar">
+        <div class="container">
+            <div class="trust-grid">
+                <div class="trust-item">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"></path></svg>
+                    <h3>+500 Productos</h3>
+                    <p>Catálogo exhaustivo y profesional</p>
+                </div>
+                <div class="trust-item">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    <h3>Marcas Líderes</h3>
+                    <p>Calidad garantizada por fabricantes</p>
+                </div>
+                <div class="trust-item">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    <h3>Soporte Técnico</h3>
+                    <p>Asesoramiento experto especializado</p>
+                </div>
+                <div class="trust-item">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    <h3>Precios Actualizados</h3>
+                    <p>Actualización diaria de costos</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="section-padding container reveal">
+        <div class="about">
+            <div class="about-text">
+                <h2 class="section-title">Su Socio de Confianza en Refrigeración y Ferretería</h2>
+                <p>En <strong>Clima Sur</strong>, nos especializamos en abastecer a profesionales con materiales, herramientas y productos técnicos diseñados para los entornos de trabajo más exigentes.</p>
+                <p>Entendemos que en el sector industrial la precisión y la confiabilidad no son opcionales. Por eso, seleccionamos cada producto de nuestro catálogo basándonos en estándares de calidad superior y durabilidad.</p>
+                <p>Nuestra trayectoria nos permite ofrecer un servicio personalizado, asegurando que cada técnico o empresa reciba exactamente lo que necesita para optimizar su operatividad.</p>
+            </div>
+            <img src="https://images.unsplash.com/photo-1504328345606-279573976773?auto=format&fit=crop&q=80&w=1000" alt="Técnico trabajando" class="about-img">
+        </div>
+    </section>
+
+    <section id="categories" class="section-padding categories">
+        <div class="container">
+            <div class="text-center reveal">
+                <h2 class="section-title" style="display: inline-block;">Categorías de Productos</h2>
+                <p style="color: var(--text-muted); margin-top: 1rem;">Soluciones integrales para cada etapa de la instalación y mantenimiento.</p>
+            </div>
+            <div class="category-grid">
+                <!-- Category Cards -->
+                <div class="category-card reveal">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.526l-.318.158a6 6 0 01-3.86.526L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 00//9 10.172V5L8 4z"></path></svg>
+                    <h4>Gases Refrigerantes</h4>
+                    <p>Variedad de gases certificados para todas las aplicaciones industriales y comerciales.</p>
+                </div>
+                <div class="category-card reveal">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 4a2 2 0 114 0v1a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-1a2 2 0 100 4h1a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 00-1 1v1a2 2 0 11-4 0v-1a1 1 0 00-1-1H7a1 1 0 01-1-1v-3a1 1 0 00-1-1H4a2 2 0 110-4h1a1 1 0 001-1V7a1 1 0 011-1h3a1 1 0 001-1V4z"></path></svg>
+                    <h4>Componentes de Refrigeración</h4>
+                    <p>Repuestos originales y genéricos de alta calidad para sistemas de frío.</p>
+                </div>
+                <div class="category-card reveal">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v16h16V4H4z m8 0v16 m0-8h8"></path></svg>
+                    <h4>Cobre e Instalación</h4>
+                    <p>Tuberías de cobre, accesorios y materiales esenciales para instalaciones seguras.</p>
+                </div>
+                <div class="category-card reveal">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
+                    <h4>Instrumentos de Medición</h4>
+                    <p>Manómetros, termómetros y herramientas de diagnóstico de precisión.</p>
+                </div>
+                <div class="category-card reveal">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                    <h4>Bombas de Vacío</h4>
+                    <p>Equipos de alto rendimiento para procesos de evacuación eficientes.</p>
+                </div>
+                <div class="category-card reveal">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"></path></svg>
+                    <h4>Equipos de Soldadura</h4>
+                    <p>Sopletes, varillas y accesorios para soldadura profesional.</p>
+                </div>
+                <div class="category-card reveal">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 4a2 2 0 114 0v1a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-1a2 2 0 100 4h1a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 00-1 1v1a2 2 0 11-4 0v-1a1 1 0 00-1-1H7a1 1 0 01-1-1v-3a1 1 0 00-1-1H4a2 2 0 110-4h1a1 1 0 001-1V7a1 1 0 011-1h3a1 1 0 001-1V4z"></path></svg>
+                    <h4>Herramientas Manuales</h4>
+                    <p>Equipamiento robusto para el trabajo diario del técnico.</p>
+                </div>
+                <div class="category-card reveal">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                    <h4>Herramientas Eléctricas</h4>
+                    <p>Maquinaria de potencia de las marcas más reconocidas del mundo.</p>
+                </div>
+                <div class="category-card reveal">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                    <h4>Materiales Eléctricos</h4>
+                    <p>Cables, contactores y componentes eléctricos industriales.</p>
+                </div>
+                <div class="category-card reveal">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.82 2.37 2.366.228 1.341-.627 2.59-2.01 3.106-1.383.516-2.741-.23-3.35-1.486-.61.116-1.267.33-1.911.33-1.244 0-2.316-1.072-2.316-2.316 0-1.244 1.072-2.316 2.316-2.316z"></path></svg>
+                    <h4>Ferretería Profesional</h4>
+                    <p>Insumos generales de alta resistencia para montaje y obra.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="why-us" class="section-padding container reveal">
+        <div class="text-center">
+            <h2 class="section-title" style="display: inline-block;">¿Por qué elegir Clima Sur?</h2>
+        </div>
+        <div class="features-grid">
+            <div class="feature-box">
+                <h3>Calidad Profesional</h3>
+                <p>Trabajamos exclusivamente con fabricantes líderes para garantizar que cada herramienta y repuesto cumpla con las normas técnicas internacionales.</p>
+            </div>
+            <div class="feature-box">
+                <h3>Expertise Técnico</h3>
+                <p>No somos solo vendedores; somos especialistas. Brindamos asesoramiento técnico real para que elija el producto exacto para su necesidad.</p>
+            </div>
+            <div class="feature-box">
+                <h3>Precios Actualizados</h3>
+                <p>En un mercado volátil, le ofrecemos transparencia. Reciba actualizaciones de precios diarias directamente vía WhatsApp.</p>
+            </div>
+            <div class="feature-box">
+                <h3>Atención Personalizada</h3>
+                <p>Valoramos la relación a largo plazo. Comunicación directa, respuestas rápidas y soluciones eficientes para su negocio.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="brands">
+        <div class="container">
+            <div class="brand-slider">
+                <div class="brand-logo">Danfoss</div>
+                <div class="brand-logo">Embraco</div>
+                <div class="brand-logo">Bosch</div>
+                <div class="brand-logo">Milwaukee</div>
+                <div class="brand-logo">Makita</div>
+                <div class="brand-logo">Stanley</div>
+                <div class="brand-logo">Black+Decker</div>
+                <div class="brand-logo">Total</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding whatsapp-cta">
+        <div class="container">
+            <h2 class="reveal">Reciba Ofertas Exclusivas Cada Día</h2>
+            <p class="reveal">Únase a nuestra red de profesionales y optimice sus costos de insumos.</p>
+            <ul class="whatsapp-list reveal">
+                <li>Actualización de precios diaria</li>
+                <li>Promociones exclusivas</li>
+                <li>Consulta de disponibilidad inmediata</li>
+                <li>Asistencia técnica personalizada</li>
+            </ul>
+            <a href="https://wa.me/yournumber" class="btn btn-primary reveal" style="background: #25D366; font-size: 1.2rem; padding: 1.2rem 3rem;">
+                Chat vía WhatsApp
+            </a>
+        </div>
+    </section>
+
+    <section id="contact" class="section-padding container reveal">
+        <div class="store-info">
+            <div class="info-details">
+                <h2 class="section-title">Información de la Tienda</h2>
+                <div class="info-item">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-//9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path></svg>
+                    <div>
+                        <h4>Clima Sur</h4>
+                        <p>Distribuidor Profesional de Refrigeración</p>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                    <div>
+                        <h4>Ubicación</h4>
+                        <p>Zapiola 1480, Villa Luzuriaga, Buenos Aires</p>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path></svg>
+                    <div>
+                        <h4>Contacto Directo</h4>
+                        <p>Consultas rápidas vía WhatsApp</p>
+                    </div>
+                </div>
+            </div>
+            <div class="map-placeholder">
+                [ Mapa de Google Maps - Zapiola 1480, Villa Luzuriaga ]
+            </div>
+        </div>
+    </section>
+
+    <section class="final-cta">
+        <div class="container">
+            <h2 class="reveal">¿Necesita suministros profesionales para su próximo trabajo?</h2>
+            <a href="https://wa.me/yournumber" class="btn btn-primary reveal">Hablar con un asesor ahora</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <a href="#" class="logo" style="color: white;">CLIMA<span>SUR</span></a>
+                    <p style="color: #aaa; margin-top: 1rem;">Líderes en distribución de insumos para refrigeración y ferretería industrial.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Enlaces Rápidos</h4>
+                    <ul class="footer-links">
+                        <li><a href="#about">Sobre Nosotros</a></li>
+                        <li><a href="#categories">Productos</a></li>
+                        <li><a href="#why-us">Beneficios</a></li>
+                        <li><a href="#contact">Contacto</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contacto</h4>
+                    <ul class="footer-links">
+                        <li>Zapiola 1480, Villa Luzuriaga</li>
+                        <li>Buenos Aires, Argentina</li>
+                        <li>WhatsApp: +54 9 XXX XXX XXXX</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                &copy; 2026 Clima Sur. Todos los derechos reservados. Desarrollado por José Siarría de El Luzurence.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Navigation Scroll Effect
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('main-nav');
+            if (window.scrollY > 50) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+
+        // Intersection Observer for Reveal Animations
+        const observerOptions = {
+            threshold: 0.15
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
